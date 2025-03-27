@@ -19,7 +19,7 @@ jobs:
       
       - name: Create Firebase Config
         run: |
-          mkdir -p scripts
+          # Create firebase-config.js in the repository root
           echo "const firebaseConfig = {
             apiKey: '${{ secrets.APIKEY }}',
             authDomain: '${{ secrets.AUTHDOMAIN }}',
