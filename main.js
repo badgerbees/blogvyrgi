@@ -1,17 +1,7 @@
-// Updated main.js with Firebase integration
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
 import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
+import { firebaseConfig } from './firebase-config.js';
 
-// Firebase configuration (replace with your own)
-const firebaseConfig = {
-  apiKey: "AIzaSyCCJX3FRMDH2AHb81GIRrd5UJPSR8k2nqw",
-  authDomain: "blogschool-f36f1.firebaseapp.com",
-  projectId: "blogschool-f36f1",
-  storageBucket: "blogschool-f36f1.firebasestorage.app",
-  messagingSenderId: "188191368080",
-  appId: "1:188191368080:web:bcb6b057d8e601687cc915",
-  measurementId: "G-1WF3LLBX4R"
-};
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
@@ -38,13 +28,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const commentsList = Object.values(comments).map(comment => `
             <div class="comment">
-                <strong>${comment.name}</strong>
-                <p>${comment.text}</p>
+                <strong>${escapeHtml(comment.name)}</strong>
+                <p>${escapeHtml(comment.text)}</p>
                 <small>${new Date(comment.timestamp).toLocaleString()}</small>
             </div>
         `).join('');
 
         commentsContainer.innerHTML = commentsList;
+    }
+
+    // Sanitize input to prevent XSS
+    function escapeHtml(unsafe) {
+        return unsafe
+             .replace(/&/g, "&amp;")
+             .replace(/</g, "&lt;")
+             .replace(/>/g, "&gt;")
+             .replace(/"/g, "&quot;")
+             .replace(/'/g, "&#039;");
     }
 
     // Submit comment
