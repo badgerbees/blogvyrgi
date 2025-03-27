@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Blog</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>My Personal Blog</h1>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="blog-post">
+            <h2>My Journey into Web Development</h2>
+            <div class="post-meta">
+                <span class="author">Written by: Your Name</span>
+                <span class="date">Published on: March 27, 2025</span>
+            </div>
+            
+            <div class="post-content">
+                <p>Welcome to my personal blog! This is where I'll share my experiences, learnings, and insights into web development.</p>
+                
+                <h3>My Background</h3>
+                <p>I've always been passionate about technology and how it can solve real-world problems. Web development has been an incredible journey of continuous learning and growth.</p>
+                
+                <h3>What to Expect</h3>
+                <p>In this blog, I'll be covering various topics including:</p>
+                <ul>
+                    <li>Web development techniques</li>
+                    <li>Programming tips and tricks</li>
+                    <li>Personal projects and experiences</li>
+                </ul>
+            </div>
+        </article>
+
+        <section id="comments">
+            <h3>Comments</h3>
+            <div id="comments-container">
+                <!-- Comments will be dynamically loaded here -->
+            </div>
+
+            <form id="comment-form">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <textarea id="comment" placeholder="Your Comment" required></textarea>
+                <button type="submit">Post Comment</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 My Personal Blog. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>
