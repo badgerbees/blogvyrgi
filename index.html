@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>My Personal Blog</title>
-  <!-- Make sure style.css is in the same folder as index.html -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -54,7 +53,6 @@
       <h3>Comments</h3>
       
       <div id="comments-container">
-        <!-- Comments will be dynamically loaded here -->
         <p class="no-comments">No comments yet. Be the first to comment!</p>
       </div>
 
@@ -82,7 +80,6 @@
           ></textarea>
         </div>
         
-        <!-- The comment button should appear if not hidden by CSS -->
         <button type="submit" id="submit-comment">
           Post Comment
         </button>
@@ -96,13 +93,7 @@
     </div>
   </footer>
 
-  <!-- 
-    If you DO NOT have these JS files, either create them or comment them out:
-    <script type="module" src="./scripts/firebase-config.js"></script>
-    <script type="module" src="./scripts/main.js"></script>
-  -->
-<script type="module" src="firebase-config.js"></script>
-<script type="module" src="main.js"></script>
-
+  <script type="module" src="firebase-config.js"></script>
+  <script type="module" src="main.js"></script>
 </body>
 </html>
