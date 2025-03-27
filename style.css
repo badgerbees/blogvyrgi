@@ -1,146 +1,103 @@
-:root {
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
-    --background-color: #f4f4f4;
-    --text-color: #333;
-    --white: #ffffff;
-}
+/* Existing styles... */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    background-color: var(--background-color);
-    color: var(--text-color);
-}
-
-.container {
-    width: 90%;
-    max-width: 1100px;
-    margin: 0 auto;
+#comments-section {
+    background-color: #f9f9f9;
+    border-radius: 8px;
     padding: 20px;
+    margin-top: 30px;
 }
 
-header {
-    background-color: var(--primary-color);
-    color: var(--white);
-    padding: 1rem 0;
-}
-
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-nav a {
-    color: var(--white);
-    text-decoration: none;
-    margin-left: 15px;
-    transition: color 0.3s ease;
-}
-
-nav a:hover {
-    color: var(--secondary-color);
-}
-
-.blog-post {
-    background-color: var(--white);
-    padding: 30px;
-    margin: 20px 0;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.blog-post h2 {
-    color: var(--primary-color);
-    margin-bottom: 15px;
-}
-
-.post-meta {
-    display: flex;
-    justify-content: space-between;
-    color: #666;
+#comments-section h3 {
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
     margin-bottom: 20px;
-    font-size: 0.9rem;
-}
-
-.post-content {
-    line-height: 1.8;
-}
-
-.post-content h3 {
-    margin: 20px 0 10px;
     color: var(--primary-color);
 }
 
-.post-content ul {
-    margin-left: 30px;
-    margin-bottom: 15px;
+#comments-container {
+    margin-bottom: 20px;
 }
 
-#comments {
-    background-color: var(--white);
-    padding: 20px;
-    margin-top: 20px;
+.no-comments {
+    color: #666;
+    text-align: center;
+    font-style: italic;
+}
+
+.comment {
+    background-color: white;
+    border: 1px solid #e0e0e0;
     border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.comment strong {
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.comment p {
+    margin-bottom: 10px;
+}
+
+.comment small {
+    color: #888;
+    font-size: 0.8em;
 }
 
 #comment-form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-top: 20px;
+    gap: 15px;
 }
 
-#comment-form input,
-#comment-form textarea {
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+
+.form-group input,
+.form-group textarea {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
+    font-size: 1em;
 }
 
-#comment-form textarea {
+.form-group textarea {
+    resize: vertical;
     min-height: 100px;
 }
 
-#comment-form button {
+#submit-comment {
+    align-self: flex-start;
     background-color: var(--secondary-color);
-    color: var(--white);
+    color: white;
     border: none;
-    padding: 10px;
+    padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-#comment-form button:hover {
+#submit-comment:hover {
     background-color: var(--primary-color);
 }
 
-footer {
-    background-color: var(--primary-color);
-    color: var(--white);
-    text-align: center;
-    padding: 1rem 0;
-}
-
-@media (max-width: 768px) {
-    header .container {
-        flex-direction: column;
-        text-align: center;
+@media (max-width: 600px) {
+    #comments-section {
+        padding: 15px;
     }
 
-    nav {
-        margin-top: 10px;
-    }
-
-    nav a {
-        margin: 0 10px;
+    .comment {
+        padding: 10px;
     }
 }
