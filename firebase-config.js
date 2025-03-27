@@ -21,13 +21,13 @@ jobs:
         run: |
           mkdir -p scripts
           echo "const firebaseConfig = {
-            apiKey: '${{ secrets.FIREBASE_API_KEY }}',
-            authDomain: '${{ secrets.FIREBASE_AUTH_DOMAIN }}',
-            projectId: '${{ secrets.FIREBASE_PROJECT_ID }}',
-            storageBucket: '${{ secrets.FIREBASE_STORAGE_BUCKET }}',
-            messagingSenderId: '${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}',
-            appId: '${{ secrets.FIREBASE_APP_ID }}',
-            databaseURL: '${{ secrets.FIREBASE_DATABASE_URL }}'
+            apiKey: '${{ secrets.APIKEY }}',
+            authDomain: '${{ secrets.AUTHDOMAIN }}',
+            projectId: '${{ secrets.PROJECTID }}',
+            storageBucket: '${{ secrets.STORAGEBUCKET }}',
+            messagingSenderId: '${{ secrets.MESSAGINGSENDERID }}',
+            appId: '${{ secrets.APPID }}',
+            databaseURL: '${{ secrets.DATABASEURL }}'
           };" > scripts/firebase-config.js
       
       - name: Setup Pages
