@@ -28,7 +28,7 @@ jobs:
             messagingSenderId: '${{ secrets.MESSAGINGSENDERID }}',
             appId: '${{ secrets.APPID }}',
             databaseURL: '${{ secrets.DATABASEURL }}'
-          };" > scripts/firebase-config.js
+          };" > firebase-config.js
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
