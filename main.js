@@ -118,11 +118,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            // Create a new comment reference
+            // Create a new comment reference and set the data
             const commentsRef = ref(database, 'comments');
-            const newCommentRef = push(commentsRef);
-
-            // Set the data
             push(commentsRef, {
                 name: nameInput.value.trim(),
                 text: commentInput.value.trim(),
