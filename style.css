@@ -1,103 +1,52 @@
-/* Existing styles... */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+nav a {
+  color: #fff;
+  margin-right: 1rem;
+  text-decoration: none;
+}
+
+.blog-post {
+  margin-top: 2rem;
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
 
 #comments-section {
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    padding: 20px;
-    margin-top: 30px;
-}
-
-#comments-section h3 {
-    border-bottom: 2px solid var(--primary-color);
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    color: var(--primary-color);
-}
-
-#comments-container {
-    margin-bottom: 20px;
-}
-
-.no-comments {
-    color: #666;
-    text-align: center;
-    font-style: italic;
-}
-
-.comment {
-    background-color: white;
-    border: 1px solid #e0e0e0;
-    border-radius: 5px;
-    padding: 15px;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.comment strong {
-    color: var(--primary-color);
-    display: block;
-    margin-bottom: 5px;
-}
-
-.comment p {
-    margin-bottom: 10px;
-}
-
-.comment small {
-    color: #888;
-    font-size: 0.8em;
-}
-
-#comment-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  margin-top: 2rem;
 }
 
 .form-group {
-    display: flex;
-    flex-direction: column;
-}
-
-.form-group label {
-    margin-bottom: 5px;
-    color: var(--primary-color);
-}
-
-.form-group input,
-.form-group textarea {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1em;
-}
-
-.form-group textarea {
-    resize: vertical;
-    min-height: 100px;
+  margin-bottom: 1rem;
 }
 
 #submit-comment {
-    align-self: flex-start;
-    background-color: var(--secondary-color);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  background-color: #007bff;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
 }
 
 #submit-comment:hover {
-    background-color: var(--primary-color);
-}
-
-@media (max-width: 600px) {
-    #comments-section {
-        padding: 15px;
-    }
-
-    .comment {
-        padding: 10px;
-    }
+  background-color: #0056b3;
 }
