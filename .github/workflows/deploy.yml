@@ -16,12 +16,10 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v4
-      
+
       - name: Create Firebase Config
         run: |
-          # This command creates firebase-config.js in your repo root.
-          # Make sure your GitHub repository has secrets set for these keys.
-          echo "const firebaseConfig = {
+          echo "export const firebaseConfig = {
             apiKey: '${{ secrets.APIKEY }}',
             authDomain: '${{ secrets.AUTHDOMAIN }}',
             projectId: '${{ secrets.PROJECTID }}',
@@ -30,6 +28,11 @@ jobs:
             appId: '${{ secrets.APPID }}',
             databaseURL: '${{ secrets.DATABASEURL }}'
           };" > firebase-config.js
+          # Output the contents for debugging (remove later for security)
+          cat firebase-config.js
+
+      - name: Debug: List files
+        run: ls -la
 
       - name: Set up Pages
         uses: actions/configure-pages@v4
@@ -37,7 +40,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'  # Upload your entire repo as the site content
+          path: '.'  # Ensure this includes firebase-config.js
 
   deploy:
     needs: build
