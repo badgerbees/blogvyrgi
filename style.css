@@ -1,11 +1,12 @@
 /* Base styles remain the same */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* Smooth scrolling */
 }
 
 body {
   margin: 0;
   font-family: "Georgia", serif;
+  /* Aged paper gradient background */
   background: linear-gradient(135deg, #f7e8d0 0%, #fdf5e6 100%);
   color: #3e2723;
   line-height: 1.6;
@@ -57,6 +58,7 @@ ul, ol {
   margin-left: 1.5rem;
 }
 
+/* Comments Section Container */
 #comments-section {
   margin-top: 2rem;
   padding: 1rem;
@@ -65,38 +67,49 @@ ul, ol {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+/* COMMENT FORM IMPROVEMENTS */
 .form-group {
+  /* Stack form elements vertically */
+  display: flex;
+  flex-direction: column;
   margin-bottom: 1rem;
 }
 
-input[type="text"],
-textarea {
+.form-group label {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #3e2723;
+}
+
+/* Make name input and comment textarea consistent in size */
+.form-group input[type="text"],
+.form-group textarea {
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.8rem;
+  font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 3px;
   box-sizing: border-box;
 }
 
-#submit-comment {
+/* Increase button size for better tap targets */
+#submit-comment,
+.reply-btn,
+.submit-reply-btn {
+  font-size: 1rem;
+  padding: 0.6rem 1rem;
   background-color: #5d4037;
   color: #fff;
-  padding: 0.5rem 1rem;
   border: none;
-  cursor: pointer;
   border-radius: 3px;
+  cursor: pointer;
+  margin-top: 0.5rem; /* Some spacing above the button */
 }
 
-#submit-comment:hover {
+#submit-comment:hover,
+.reply-btn:hover,
+.submit-reply-btn:hover {
   background-color: #4e342e;
-}
-
-footer {
-  background-color: #5d4037;
-  color: #fff;
-  text-align: center;
-  padding: 1rem 0;
-  margin-top: 2rem;
 }
 
 /* Fade-in Animation Styles */
@@ -112,25 +125,51 @@ footer {
   transform: translateY(0);
 }
 
-/* Reply structure styles */
+/* COMMENTS & REPLY STRUCTURE */
 .comment {
   border-bottom: 1px solid #e0e0e0;
   padding-bottom: 1rem;
   margin-bottom: 1rem;
 }
 
-.reply {
-  margin-left: 1rem;
-  padding: 0.5rem;
-  border-left: 2px solid #ccc;
-  font-size: 0.9rem;
+.comment strong {
+  display: block;
+  margin-bottom: 0.2rem;
 }
 
+.comment p {
+  margin: 0.5rem 0;
+}
+
+.reply-btn {
+  display: inline-block;
+}
+
+/* Container for the reply form that toggles visibility */
 .reply-form-container {
   margin-top: 0.5rem;
   padding: 0.5rem;
   background: #f9f9f9;
   border-radius: 3px;
+  display: none; /* Initially hidden, toggled by JS */
+}
+
+/* Replies to a comment */
+.reply {
+  margin-left: 1rem;
+  padding: 0.5rem;
+  border-left: 2px solid #ccc;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Footer */
+footer {
+  background-color: #5d4037;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
 }
 
 /* Responsive Design Adjustments for Mobile */
@@ -139,54 +178,55 @@ footer {
     padding: 0.5rem;
     font-size: 18px;
   }
-  
+
   .container {
     max-width: 100%;
     padding: 0 0.5rem;
   }
-  
+
   header, footer {
     padding: 1rem 0;
   }
-  
+
   .blog-post {
     padding: 1.2rem;
   }
-  
+
   h1 {
     font-size: 2rem;
   }
-  
+
   h2, h3, h4 {
     font-size: 1.6rem;
   }
-  
+
   .post-meta {
     font-size: 1rem;
   }
-  
+
   #comments-section {
     padding: 1rem;
     font-size: 18px;
   }
-  
-  input[type="text"],
-  textarea {
-    padding: 0.5rem;
+
+  .form-group input[type="text"],
+  .form-group textarea {
+    padding: 0.6rem;
     font-size: 16px;
   }
-  
-  #submit-comment {
-    padding: 0.6rem 1.2rem;
+
+  #submit-comment,
+  .reply-btn,
+  .submit-reply-btn {
     font-size: 16px;
+    padding: 0.7rem 1.2rem;
   }
-  
-  /* Adjust reply elements for mobile */
+
   .reply {
     font-size: 16px;
     margin-left: 1rem;
   }
-  
+
   .reply-form-container {
     padding: 0.6rem;
     font-size: 16px;
