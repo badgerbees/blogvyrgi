@@ -1,12 +1,17 @@
+/* Warna dasar yang memberikan nuansa buku dan kehangatan coklat */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: "Georgia", serif;
+  background-color: #f6f1e9; /* Warna latar seperti kertas buku */
+  color: #3e2723; /* Warna teks coklat gelap */
+  line-height: 1.6;
 }
 
 header {
-  background-color: #333;
+  background-color: #5d4037; /* Nuansa coklat tua */
   color: #fff;
-  padding: 1rem;
+  padding: 1.5rem 0;
+  text-align: center;
 }
 
 .container {
@@ -17,12 +22,34 @@ header {
 
 .blog-post {
   margin-top: 2rem;
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .post-meta {
   font-size: 0.9rem;
-  color: #666;
+  color: #6d4c41;
   margin-bottom: 1rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Georgia", serif;
+}
+
+a.scroll-link {
+  color: #1565c0; /* Warna biru untuk link */
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a.scroll-link:hover {
+  text-decoration: underline;
+}
+
+ul, ol {
+  margin-left: 1.5rem;
 }
 
 #comments-section {
@@ -33,14 +60,31 @@ header {
   margin-bottom: 1rem;
 }
 
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
 #submit-comment {
-  background-color: #007bff;
+  background-color: #5d4037;
   color: #fff;
   padding: 0.5rem 1rem;
   border: none;
   cursor: pointer;
+  border-radius: 3px;
 }
 
 #submit-comment:hover {
-  background-color: #0056b3;
+  background-color: #4e342e;
+}
+
+footer {
+  background-color: #5d4037;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
 }
