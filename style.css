@@ -1,8 +1,12 @@
-/* Warna dasar yang memberikan nuansa buku dan kehangatan coklat */
+/* Warna dasar yang memberikan nuansa buku dan kehangatan coklat muda */
+html {
+  scroll-behavior: smooth; /* Menambahkan efek scroll yang lembut */
+}
+
 body {
   margin: 0;
   font-family: "Georgia", serif;
-  background-color: #f6f1e9; /* Warna latar seperti kertas buku */
+  background-color: #f7e8d0; /* Warna latar coklat muda seperti kertas tua */
   color: #3e2723; /* Warna teks coklat gelap */
   line-height: 1.6;
 }
