@@ -1,15 +1,43 @@
 // Import Firebase modules from CDN
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
-import { firebaseConfig } from './firebase-config.js';
 
 // Debug logging function
 function debugLog(message, ...args) {
   console.log(`[Comments Debug] ${message}`, ...args);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  debugLog('Firebase Config:', firebaseConfig);
+// Function to dynamically load firebase-config.js with retries
+async function loadFirebaseConfigWithRetry(maxRetries = 5, delay = 3000) {
+  let retries = 0;
+  while (retries < maxRetries) {
+    try {
+      const module = await import('./firebase-config.js');
+      return module.firebaseConfig;
+    } catch (error) {
+      debugLog(`Failed to load firebase-config.js. Retry ${retries + 1} of ${maxRetries}`, error);
+      retries++;
+      // Wait for the specified delay before retrying
+      await new Promise(resolve => setTimeout(resolve, delay));
+    }
+  }
+  throw new Error("Could not load firebase-config.js after multiple retries.");
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+  let firebaseConfig;
+  try {
+    firebaseConfig = await loadFirebaseConfigWithRetry();
+    debugLog('Firebase Config loaded:', firebaseConfig);
+  } catch (error) {
+    debugLog('Error loading firebase-config.js:', error);
+    document.getElementById('comments-container').innerHTML = `
+      <div style="color: red;">
+        Error loading Firebase config: ${error.message}
+      </div>
+    `;
+    return;
+  }
 
   // Check for missing keys in the config
   const missingKeys = Object.entries(firebaseConfig)
