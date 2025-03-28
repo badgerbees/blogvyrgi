@@ -29,12 +29,6 @@ jobs:
             appId: '${{ secrets.APPID }}',
             databaseURL: '${{ secrets.FIREBASE_DATABASE_URL }}'
           };" > firebase-config.js
-          # Output the contents for debugging (remove later for security)
-          cat firebase-config.js
-
-      - name: Debug:List files
-        run: |
-          ls -la
 
       - name: Set up Pages
         uses: actions/configure-pages@v4
@@ -54,4 +48,3 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-      
