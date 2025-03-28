@@ -27,7 +27,7 @@ jobs:
             storageBucket: '${{ secrets.STORAGEBUCKET }}',
             messagingSenderId: '${{ secrets.MESSAGINGSENDERID }}',
             appId: '${{ secrets.APPID }}',
-            databaseURL: '${{ secrets.DATABASEURL }}'
+            databaseURL: '${{ secrets.FIREBASE_DATABASE_URL }}'
           };" > firebase-config.js
           # Output the contents for debugging (remove later for security)
           cat firebase-config.js
