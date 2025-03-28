@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       .replace(/'/g, "&#039;");
   }
 
-  // Load comments from Firebase
+  // Load comments and their replies from Firebase
   function loadComments() {
     try {
       const commentsRef = ref(database, 'comments');
@@ -96,15 +96,83 @@ document.addEventListener('DOMContentLoaded', async () => {
           return;
         }
 
-        const commentsList = Object.values(commentsData).map(comment => `
-          <div class="comment">
-            <strong>${escapeHtml(comment.name)}</strong>
-            <p>${escapeHtml(comment.text)}</p>
-            <small>${new Date(comment.timestamp).toLocaleString()}</small>
-          </div>
-        `).join('');
+        let commentsHtml = '';
+        Object.keys(commentsData).forEach(commentId => {
+          const comment = commentsData[commentId];
 
-        commentsContainer.innerHTML = commentsList;
+          // Build replies HTML if available
+          let repliesHtml = '';
+          if (comment.replies) {
+            Object.keys(comment.replies).forEach(replyId => {
+              const reply = comment.replies[replyId];
+              repliesHtml += `
+                <div class="reply">
+                  <strong>${escapeHtml(reply.name)}</strong>
+                  <p>${escapeHtml(reply.text)}</p>
+                  <small>${new Date(reply.timestamp).toLocaleString()}</small>
+                </div>
+              `;
+            });
+          }
+
+          commentsHtml += `
+            <div class="comment" data-id="${commentId}">
+              <strong>${escapeHtml(comment.name)}</strong>
+              <p>${escapeHtml(comment.text)}</p>
+              <small>${new Date(comment.timestamp).toLocaleString()}</small>
+              <button class="reply-btn">Reply</button>
+              <div class="reply-form-container" style="display: none;">
+                <input type="text" class="reply-name" placeholder="Your Name" maxlength="50" required />
+                <textarea class="reply-text" placeholder="Your Reply" maxlength="500" required></textarea>
+                <button class="submit-reply-btn">Submit Reply</button>
+              </div>
+              <div class="replies-container">${repliesHtml}</div>
+            </div>
+          `;
+        });
+        commentsContainer.innerHTML = commentsHtml;
+
+        // Toggle reply form visibility on reply button click
+        const replyButtons = document.querySelectorAll('.reply-btn');
+        replyButtons.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const commentDiv = btn.parentElement;
+            const replyFormContainer = commentDiv.querySelector('.reply-form-container');
+            replyFormContainer.style.display = (replyFormContainer.style.display === 'none' || replyFormContainer.style.display === '') ? 'block' : 'none';
+          });
+        });
+
+        // Attach event listeners for submitting replies
+        const submitReplyButtons = document.querySelectorAll('.submit-reply-btn');
+        submitReplyButtons.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const commentDiv = btn.closest('.comment');
+            const commentId = commentDiv.getAttribute('data-id');
+            const replyNameInput = commentDiv.querySelector('.reply-name');
+            const replyTextInput = commentDiv.querySelector('.reply-text');
+            const replyName = replyNameInput.value.trim();
+            const replyText = replyTextInput.value.trim();
+            if (!replyName || !replyText) {
+              alert('Please fill in both fields.');
+              return;
+            }
+            const replyData = {
+              name: replyName,
+              text: replyText,
+              timestamp: Date.now()
+            };
+            const repliesRef = ref(database, `comments/${commentId}/replies`);
+            push(repliesRef, replyData)
+              .then(() => {
+                // Clear reply form fields after submission
+                replyNameInput.value = '';
+                replyTextInput.value = '';
+              })
+              .catch((error) => {
+                alert(`Failed to submit reply: ${error.message}`);
+              });
+          });
+        });
       }, (error) => {
         debugLog('Error loading comments:', error);
         commentsContainer.innerHTML = `
@@ -118,7 +186,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   }
 
-  // Submit comment event handler
+  // Submit top-level comment event handler
   commentForm.addEventListener('submit', (e) => {
     e.preventDefault();
     debugLog('Comment form submitted');
@@ -126,7 +194,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const nameInput = document.getElementById('name');
     const commentInput = document.getElementById('comment');
 
-    // Validate inputs
     if (!nameInput.value.trim() || !commentInput.value.trim()) {
       alert('Please fill in both name and comment fields.');
       return;
@@ -159,13 +226,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   loadComments();
 });
 
-
-// fade-in functionality code (adjusted for mobile)
+// Fade-in functionality (adjusted for mobile)
 document.addEventListener('DOMContentLoaded', () => {
   const faders = document.querySelectorAll('.fade-in');
   const appearOptions = {
-    threshold: 0.1, // Lower threshold for mobile devices
-    rootMargin: "0px 0px -20px 0px" // Reduced root margin
+    threshold: 0.1,
+    rootMargin: "0px 0px -20px 0px"
   };
 
   const appearOnScroll = new IntersectionObserver((entries, observer) => {
@@ -181,5 +247,3 @@ document.addEventListener('DOMContentLoaded', () => {
     appearOnScroll.observe(fader);
   });
 });
-
-
