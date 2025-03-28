@@ -159,20 +159,21 @@ document.addEventListener('DOMContentLoaded', async () => {
   loadComments();
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Select all elements that should fade in
-  const faders = document.querySelectorAll('.fade-in');
 
+// fade-in functionality code (adjusted for mobile)
+document.addEventListener('DOMContentLoaded', () => {
+  const faders = document.querySelectorAll('.fade-in');
   const appearOptions = {
-    threshold: 0.2,
-    rootMargin: "0px 0px -50px 0px"
+    threshold: 0.1, // Lower threshold for mobile devices
+    rootMargin: "0px 0px -20px 0px" // Reduced root margin
   };
 
-  const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
     });
   }, appearOptions);
 
@@ -180,4 +181,5 @@ document.addEventListener('DOMContentLoaded', () => {
     appearOnScroll.observe(fader);
   });
 });
+
 
