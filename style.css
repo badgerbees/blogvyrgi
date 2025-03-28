@@ -1,20 +1,19 @@
-/* Warna dasar yang memberikan nuansa buku dan kehangatan coklat muda dengan latar bergaya kertas tua */
+/* Base styles remain the same */
 html {
-  scroll-behavior: smooth; /* Menambahkan efek scroll yang lembut */
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
   font-family: "Georgia", serif;
-  /* Aged paper gradient background */
   background: linear-gradient(135deg, #f7e8d0 0%, #fdf5e6 100%);
-  color: #3e2723; /* Warna teks coklat gelap */
+  color: #3e2723;
   line-height: 1.6;
   padding: 1rem;
 }
 
 header {
-  background-color: #5d4037; /* Nuansa coklat tua */
+  background-color: #5d4037;
   color: #fff;
   padding: 1.5rem 0;
   text-align: center;
@@ -45,7 +44,7 @@ h1, h2, h3, h4 {
 }
 
 a.scroll-link {
-  color: #1565c0; /* Warna biru untuk link */
+  color: #1565c0;
   text-decoration: none;
   cursor: pointer;
 }
@@ -113,7 +112,7 @@ footer {
   transform: translateY(0);
 }
 
-/* Additional styling for reply functionality */
+/* Reply structure styles */
 .comment {
   border-bottom: 1px solid #e0e0e0;
   padding-bottom: 1rem;
@@ -134,57 +133,62 @@ footer {
   border-radius: 3px;
 }
 
-/* Responsive Design Adjustments */
+/* Responsive Design Adjustments for Mobile */
 @media (max-width: 600px) {
   body {
     padding: 0.5rem;
-    font-size: 16px;
+    font-size: 18px;
   }
-
+  
+  .container {
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
+  
   header, footer {
     padding: 1rem 0;
   }
-
-  .container {
-    padding: 0 0.5rem;
-  }
-
+  
   .blog-post {
-    padding: 1rem;
+    padding: 1.2rem;
   }
-
+  
   h1 {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
   
   h2, h3, h4 {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
-
+  
   .post-meta {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
   
   #comments-section {
-    padding: 0.5rem;
+    padding: 1rem;
+    font-size: 18px;
   }
   
   input[type="text"],
   textarea {
-    padding: 0.4rem;
+    padding: 0.5rem;
+    font-size: 16px;
   }
   
   #submit-comment {
-    padding: 0.4rem 0.8rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 16px;
   }
   
   /* Adjust reply elements for mobile */
   .reply {
-    font-size: 0.85rem;
-    margin-left: 0.5rem;
+    font-size: 16px;
+    margin-left: 1rem;
   }
   
   .reply-form-container {
-    padding: 0.5rem;
+    padding: 0.6rem;
+    font-size: 16px;
   }
 }
