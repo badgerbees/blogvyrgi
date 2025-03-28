@@ -1,4 +1,4 @@
-/* Warna dasar yang memberikan nuansa buku dan kehangatan coklat muda */
+/* Warna dasar yang memberikan nuansa buku dan kehangatan coklat muda dengan latar bergaya kertas tua */
 html {
   scroll-behavior: smooth; /* Menambahkan efek scroll yang lembut */
 }
@@ -6,7 +6,8 @@ html {
 body {
   margin: 0;
   font-family: "Georgia", serif;
-  background-color: #f7e8d0; /* Warna latar coklat muda seperti kertas tua */
+  /* Aged paper gradient background */
+  background: linear-gradient(135deg, #f7e8d0 0%, #fdf5e6 100%);
   color: #3e2723; /* Warna teks coklat gelap */
   line-height: 1.6;
 }
@@ -93,7 +94,7 @@ footer {
   margin-top: 2rem;
 }
 
-/* Fade-in animation styles */
+/* Fade-in Animation Styles */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
