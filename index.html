@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Add fade-in class to header for animation -->
+  <!-- Fade-in animated header -->
   <header class="fade-in">
     <div class="container">
       <h1>Genosida: Pelajaran Kelam dalam Sejarah Umat Manusia</h1>
@@ -15,7 +15,7 @@
   </header>
 
   <main class="container">
-    <!-- Add fade-in class to article -->
+    <!-- Fade-in animated article -->
     <article class="blog-post fade-in">
       <div class="post-meta">
         <span class="author">Ditulis oleh: Vyrgi Rapabel</span>
@@ -92,13 +92,15 @@
       </div>
     </article>
 
-    <!-- Add fade-in class to comments section -->
+    <!-- Comments Section -->
+    <!-- The comments container will be dynamically filled with comments along with reply buttons, reply forms, and replies by main.js -->
     <section id="comments-section" class="fade-in">
       <h3>Komentar</h3>
       <div id="comments-container">
         <p class="no-comments">Belum ada komentar. Jadilah yang pertama berkomentar!</p>
       </div>
 
+      <!-- Main comment submission form -->
       <form id="comment-form">
         <div class="form-group">
           <label for="name">Nama</label>
@@ -128,7 +130,7 @@
     </section>
   </main>
 
-  <!-- Add fade-in class to footer -->
+  <!-- Fade-in animated footer -->
   <footer class="fade-in">
     <div class="container">
       <p>&copy; 2025. All rights reserved.</p>
@@ -138,6 +140,5 @@
   <!-- Load Firebase config and main JS from the root -->
   <script type="module" src="firebase-config.js"></script>
   <script type="module" src="main.js"></script>
-
 </body>
 </html>
