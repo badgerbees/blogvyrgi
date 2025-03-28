@@ -10,6 +10,7 @@ body {
   background: linear-gradient(135deg, #f7e8d0 0%, #fdf5e6 100%);
   color: #3e2723; /* Warna teks coklat gelap */
   line-height: 1.6;
+  padding: 1rem;
 }
 
 header {
@@ -98,10 +99,43 @@ footer {
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
+  will-change: opacity, transform;
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 600px) {
+  body {
+    padding: 0.5rem;
+    font-size: 16px;
+  }
+  
+  header, footer {
+    padding: 1rem 0;
+  }
+  
+  .container {
+    padding: 0 0.5rem;
+  }
+  
+  .blog-post {
+    padding: 1rem;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  h2, h3, h4 {
+    font-size: 1.4rem;
+  }
+  
+  .post-meta {
+    font-size: 0.8rem;
+  }
 }
