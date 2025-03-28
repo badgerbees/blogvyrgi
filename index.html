@@ -18,7 +18,7 @@
     <!-- Add fade-in class to article -->
     <article class="blog-post fade-in">
       <div class="post-meta">
-        <span class="author">Ditulis oleh: [Nama Kamu]</span>
+        <span class="author">Ditulis oleh: Vyrgi Rapabel</span>
         <span class="date">Dipublikasikan pada: March 27, 2025</span>
       </div>
       <div class="post-content">
@@ -138,28 +138,6 @@
   <!-- Load Firebase config and main JS from the root -->
   <script type="module" src="firebase-config.js"></script>
   <script type="module" src="main.js"></script>
-  
-  <!-- Fade-in Animation Script using Intersection Observer -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const faders = document.querySelectorAll('.fade-in');
-      const appearOptions = {
-        threshold: 0.2,
-        rootMargin: "0px 0px -50px 0px"
-      };
 
-      const appearOnScroll = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        });
-      }, appearOptions);
-
-      faders.forEach(fader => {
-        appearOnScroll.observe(fader);
-      });
-    });
-  </script>
 </body>
 </html>
