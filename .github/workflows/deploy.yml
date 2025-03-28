@@ -2,7 +2,8 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - "main"
   workflow_dispatch:
 
 permissions:
@@ -31,8 +32,9 @@ jobs:
           # Output the contents for debugging (remove later for security)
           cat firebase-config.js
 
-      - name: Debug: List files
-        run: ls -la
+      - name: Debug:List files
+        run: |
+          ls -la
 
       - name: Set up Pages
         uses: actions/configure-pages@v4
@@ -40,7 +42,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'  # Ensure this includes firebase-config.js
+          path: "."
 
   deploy:
     needs: build
