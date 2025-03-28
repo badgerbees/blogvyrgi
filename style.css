@@ -60,6 +60,10 @@ ul, ol {
 
 #comments-section {
   margin-top: 2rem;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .form-group {
@@ -72,6 +76,7 @@ textarea {
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 3px;
+  box-sizing: border-box;
 }
 
 #submit-comment {
@@ -108,25 +113,46 @@ footer {
   transform: translateY(0);
 }
 
+/* Additional styling for reply functionality */
+.comment {
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.reply {
+  margin-left: 1rem;
+  padding: 0.5rem;
+  border-left: 2px solid #ccc;
+  font-size: 0.9rem;
+}
+
+.reply-form-container {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background: #f9f9f9;
+  border-radius: 3px;
+}
+
 /* Responsive Design Adjustments */
 @media (max-width: 600px) {
   body {
     padding: 0.5rem;
     font-size: 16px;
   }
-  
+
   header, footer {
     padding: 1rem 0;
   }
-  
+
   .container {
     padding: 0 0.5rem;
   }
-  
+
   .blog-post {
     padding: 1rem;
   }
-  
+
   h1 {
     font-size: 1.8rem;
   }
@@ -134,8 +160,31 @@ footer {
   h2, h3, h4 {
     font-size: 1.4rem;
   }
-  
+
   .post-meta {
     font-size: 0.8rem;
+  }
+  
+  #comments-section {
+    padding: 0.5rem;
+  }
+  
+  input[type="text"],
+  textarea {
+    padding: 0.4rem;
+  }
+  
+  #submit-comment {
+    padding: 0.4rem 0.8rem;
+  }
+  
+  /* Adjust reply elements for mobile */
+  .reply {
+    font-size: 0.85rem;
+    margin-left: 0.5rem;
+  }
+  
+  .reply-form-container {
+    padding: 0.5rem;
   }
 }
