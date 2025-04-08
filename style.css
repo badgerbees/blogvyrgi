@@ -110,19 +110,6 @@ ul, ol {
   background-color: #4e342e;
 }
 
-/* Fade-in Animation Styles */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  will-change: opacity, transform;
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* COMMENTS & REPLY STRUCTURE */
 .comment {
   border-bottom: 1px solid #e0e0e0;
